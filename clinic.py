@@ -1,7 +1,7 @@
 import xmlrpc.client as client
 
 #make stub/skeleton (proxy) on client
-server = client.ServerProxy("http://127.0.0.1:8008")
+server = client.ServerProxy("http://117.53.45.7:8008")
 
 #input clinic name
 name = input("clinic name : ")
