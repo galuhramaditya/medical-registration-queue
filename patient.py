@@ -2,7 +2,7 @@ import xmlrpc.client as client
 import time
 
 #make stub/skeleton (proxy) on client
-server = client.ServerProxy("http://117.53.45.7:8008")
+server = client.ServerProxy("http://0.0.0.0:8008")
 
 #input patient identity
 name = input("name : ")

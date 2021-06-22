@@ -1,7 +1,7 @@
 import xmlrpc.client as client
 
 #make stub/skeleton (proxy) on client
-server = client.ServerProxy("http://117.53.45.7:8008")
+server = client.ServerProxy("http://0.0.0.0:8008")
 
 #input clinic name
 name = input("clinic name : ")
@@ -32,6 +32,7 @@ while True:
     print("1. refresh")
     print("2. pop patient")
     print("3. reset queue")
+    print("4. sort by medical")
 
     #input menu
     menu = input("input : ")
@@ -43,6 +44,9 @@ while True:
     #if input menu = reset queue
     elif menu == "3":
         server.resetQueue(idx_clinic) #call resetQueue
+
+    elif menu == "4":
+        server.sortingPatient(idx_clinic)
     
     #print 10 linebreak
     print("\n"*10)

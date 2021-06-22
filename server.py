@@ -5,7 +5,7 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ("/RPC2",) #limit to path /RPC2 only
 
 #make server
-with SimpleXMLRPCServer(("127.0.0.1", 8008), requestHandler=RequestHandler, allow_none=True) as server:
+with SimpleXMLRPCServer(("0.0.0.0", 8008), requestHandler=RequestHandler, allow_none=True) as server:
     #make register function
     server.register_introspection_functions()
 
@@ -45,6 +45,9 @@ with SimpleXMLRPCServer(("127.0.0.1", 8008), requestHandler=RequestHandler, allo
 
             current_clinic["queue"] = [] #reset queue to be empty
             current_clinic["last_queue_number"] = 0 #reset last queue number to be 0
+
+        def sortingPatient(self, idx_clinic):
+            self.clinics[idx_clinic]["queue"].sort(key=lambda x: x["medical_record_number"])
 
         #for add patient to queue of current clinic
         def addPatient(self, idx_clinic, name, medical_record_number, birthday):
